@@ -13,7 +13,7 @@ This project is a straightforward and user-friendly Todo-List website that helps
 
 # Live Demo
 
-a deployed version of the website can be accessed [Here](https://yehyatamimi.github.io/Portfolio/)
+a deployed version of the website can be accessed [Here](https://yehyatamimi.github.io/Todo-App/)
 
 # Instructions for running the project locally
 
