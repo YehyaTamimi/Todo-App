@@ -1,0 +1,16 @@
+@media screen and (max-width: 550px) {
+    body {
+      padding: 10px 5%;
+    }
+
+    h3{
+        margin-top: 100px;
+    }
+    
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 1200px) {
+    body {
+        padding: 10px 10%;
+    }
+}

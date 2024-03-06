@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=League+Gothic&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'League Gothic', sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20%;
+    background-color: #EEEDED;
+}
+
+h3 {
+    margin-top: 150px;
+    text-align: center;
+    font-size: 6rem;
+    margin-bottom: 50px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.add-container {
+    background-color: white; 
+    border-radius: 10px;
+    display: flex; 
+    align-items: center; 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-bottom: 80px;
+}
+
+.add-container input[type="text"] {
+    flex: 1;
+    margin-right: 10px; 
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: 'League Gothic', sans-serif;
+    border: none;
+}
+
+
+.add-container button {
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.add-container button:hover {
+    transform: scale(1.1); 
+}
+
+.item-card{
+    background-color: white; 
+    border-radius: 10px;
+    display: flex; 
+    align-items: center; 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.item-card p{
+    flex: 1;
+    text-align: justify;
+}
+
+.edit{
+    background-color: #186720;
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-left: 20px;
+}
+
+.edit:hover{
+    transform: scale(1.1); 
+}
+
+.item-card input[type="text"]{
+    flex: 1;
+    margin-right: 10px; 
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: 'League Gothic', sans-serif;
+    border: none;
+}
+
+.delete{
+    background-color: red;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease
+}
+
+.delete:hover{
+    transform: scale(1.1); 
+}
+
+.cancel{
+    background-color: red;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease
+}
+
+.cancel:hover{
+    transform: scale(1.1); 
+}
+
+.confirm{
+    background-color: #186720;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    margin-left: 10px;
+}
+
+.confirm:hover{
+    transform: scale(1.1); 
+}
+
