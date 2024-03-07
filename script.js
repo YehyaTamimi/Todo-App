@@ -1,3 +1,17 @@
+//replace elements inside a todo card
+const replaceElements = (cardDiv, elements) => {
+    for(const element in elements){
+        cardDiv.querySelector(element).replaceWith(elements[element]);
+    }
+}
+
+//save items to local storage
+const saveToStorage = () => {
+    const ul = document.querySelector("ul");
+    localStorage.setItem("cards", ul.innerHTML);
+    localStorage.setItem("itemCount", itemCount);
+}
+
 // create a button with specific classes and click handler
 const createBtn = (classes, clickHandler) => {
     const btn = document.createElement("button");
@@ -18,8 +32,8 @@ const removeCard = (event) => {
     const cardDiv = btn.closest(".item-card");
     cardDiv.parentNode.remove();
     itemCount--;
-    localStorage.setItem("itemCount", itemCount);
 
+    saveToStorage();
 }
 
 // edit a todo card
@@ -41,10 +55,7 @@ const editCard = (event) => {
         confirmEdit(cardDiv);
     });
 
-    cardDiv.querySelector(".edit").replaceWith(cancel);
-    cardDiv.querySelector(".delete").replaceWith(confirm);
-
-    cardDiv.querySelector("p").replaceWith(inputElement);
+    replaceElements(cardDiv, {".edit": cancel, ".delete": confirm, "p": inputElement});
 
     inputElement.focus();
 }
@@ -57,9 +68,8 @@ const cancelEdit = (cardValue, cardDiv) => {
     const editBtn = createBtn(["edit", "fa-solid", "fa-pen-to-square"], editCard);
     const deleteBtn = createBtn(["delete", "fa-solid", "fa-trash"], removeCard);
 
-    cardDiv.querySelector("input").replaceWith(p);
-    cardDiv.querySelector(".cancel").replaceWith(editBtn);
-    cardDiv.querySelector(".confirm").replaceWith(deleteBtn);
+    replaceElements(cardDiv, {"input": p, ".cancel": editBtn, ".confirm": deleteBtn});
+
 }
 
 // confirm editing a todo card
@@ -71,9 +81,9 @@ const confirmEdit = (cardDiv) => {
     const editBtn = createBtn(["edit", "fa-solid", "fa-pen-to-square"], editCard);
     const deleteBtn = createBtn(["delete", "fa-solid", "fa-trash"], removeCard);
 
-    cardDiv.querySelector("input").replaceWith(p);
-    cardDiv.querySelector(".cancel").replaceWith(editBtn);
-    cardDiv.querySelector(".confirm").replaceWith(deleteBtn);
+    replaceElements(cardDiv, {"input": p, ".cancel": editBtn, ".confirm": deleteBtn});
+
+    saveToStorage();
 }
 
 // add new todo card
@@ -81,6 +91,10 @@ const addTodo = () => {
     const ul = document.querySelector("ul");
     const todo = document.querySelector(".todo");
     let inputValue = todo.value;
+
+    if(inputValue === ""){
+        return;
+    }
 
     const li = document.createElement("li");
     const newCard = document.createElement("div");
@@ -99,12 +113,10 @@ const addTodo = () => {
     li.appendChild(newCard);
     ul.appendChild(li); 
 
-    console.log(ul.innerHTML);
     todo.value = "";
     itemCount++;
 
-    localStorage.setItem("itemCount", itemCount);
-    localStorage.setItem("cards", ul.innerHTML);
+    saveToStorage();
 }
 
 window.onload = () => {
