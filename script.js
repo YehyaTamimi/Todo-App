@@ -19,7 +19,6 @@ const createBtn = (classes, clickHandler) => {
 
     const icon = document.createElement("i");
     icon.classList.add(...classes);
-    icon.style.color = '#ffffff';
 
     btn.appendChild(icon);
     btn.addEventListener("click", clickHandler);
