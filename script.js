@@ -51,7 +51,7 @@ const editCard = (event) => {
         cancelEdit(cardValue, cardDiv);
     });
     const confirm = createBtn(["confirm", "fa-solid", "fa-check"], () => {
-        confirmEdit(cardDiv);
+        confirmEdit(cardValue, cardDiv);
     });
 
     replaceElements(cardDiv, {".edit": cancel, ".delete": confirm, "p": inputElement});
@@ -72,10 +72,16 @@ const cancelEdit = (cardValue, cardDiv) => {
 }
 
 // confirm editing a todo card
-const confirmEdit = (cardDiv) => {
+const confirmEdit = (cardValue, cardDiv) => {
     const input = cardDiv.querySelector("input");
+
+    if(input.value.trim() === ""){
+        cancelEdit(cardValue, cardDiv);
+        return;
+    }
+
     const p = document.createElement('p');
-    p.textContent = input.value;
+    p.textContent = input.value.trim();
 
     const editBtn = createBtn(["edit", "fa-solid", "fa-pen-to-square"], editCard);
     const deleteBtn = createBtn(["delete", "fa-solid", "fa-trash"], removeCard);
@@ -89,7 +95,7 @@ const confirmEdit = (cardDiv) => {
 const addTodo = () => {
     const ul = document.querySelector("ul");
     const todo = document.querySelector(".todo");
-    let inputValue = todo.value;
+    let inputValue = todo.value.trim();
 
     if(inputValue === ""){
         return;
